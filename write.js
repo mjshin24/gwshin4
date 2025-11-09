@@ -10,6 +10,7 @@ const firebaseConfig = {
   appId: "1:630755920968:web:bc886798acc7611e0e1c7d",
   measurementId: "G-QDH7XXRRZP"
 };
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
@@ -18,7 +19,7 @@ document.getElementById("petition-form").addEventListener("submit", async (e) =>
   const title = document.getElementById("title").value.trim();
   const content = document.getElementById("content").value.trim();
 
-  if (!title || !content) return alert("모든 항목을 입력하세요!");
+  if (!title || !content) return alert("모든 항목을 입력하세요");
 
   await addDoc(collection(db, "petitions"), {
   title,
@@ -29,6 +30,7 @@ document.getElementById("petition-form").addEventListener("submit", async (e) =>
 });
 
 
-  alert("청원이 등록되었습니다!");
+  alert("청원이 등록되었습니다");
   window.location.href = "index.html";
 });
+
